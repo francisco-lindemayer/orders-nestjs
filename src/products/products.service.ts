@@ -52,4 +52,14 @@ export class ProductsService {
     }
     return product;
   }
+
+  async findProductsByIds(ids: number[]) {
+    const products = await Product.findAll({
+      where: {
+        id: ids,
+      },
+    });
+
+    return products;
+  }
 }

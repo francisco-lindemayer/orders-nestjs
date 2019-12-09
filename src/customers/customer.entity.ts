@@ -5,7 +5,9 @@
   PrimaryKey,
   Column,
   Unique,
+  HasMany,
 } from 'sequelize-typescript';
+import { Order } from 'src/orders/order.entity';
 
 @Table({ tableName: 'customers', timestamps: true })
 export class Customer extends Model<Customer> {
@@ -23,4 +25,7 @@ export class Customer extends Model<Customer> {
 
   @Column
   email: string;
+
+  @HasMany(() => Order)
+  orders: Order[];
 }

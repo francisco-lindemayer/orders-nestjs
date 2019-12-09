@@ -5,7 +5,10 @@
   PrimaryKey,
   Column,
   Unique,
+  HasOne,
+  HasMany,
 } from 'sequelize-typescript';
+import { OrderItem } from 'src/orders/order-item.entity';
 
 @Table({ tableName: 'products', timestamps: true })
 export class Product extends Model<Product> {
@@ -23,4 +26,7 @@ export class Product extends Model<Product> {
 
   @Column
   unitPrice: number;
+
+  @HasMany(() => OrderItem)
+  orderItens: OrderItem[];
 }
