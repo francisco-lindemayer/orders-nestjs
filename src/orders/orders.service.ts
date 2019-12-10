@@ -23,7 +23,7 @@ export class OrdersService {
       limit,
       offset,
       order: [[columnOrderBy, order]],
-      include: [OrderItem],
+      include: [Customer, OrderItem],
     });
   }
 
